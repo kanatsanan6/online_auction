@@ -10,7 +10,7 @@
           :class="{ 'block absolute top-14 border-b bg-white w-full p-2': showMenu, 'hidden': !showMenu}"
           id="navbar-main" x-cloak>
           <li :class="showMenu && 'py-1'" class="flex items-center">
-            <%= link "Auctions", to: "", class: "px-3 cursor-pointer flex items-center hover:text-blue-700" %>
+            <%= link "Auctions", to: Routes.item_index_path(@conn, :index), class: "px-3 cursor-pointer flex items-center hover:text-blue-700" %>
           </li>
           <li :class="showMenu && 'py-1'" class="flex items-center">
             <%= link "Profile", to: "", class: "px-3 cursor-pointer flex items-center hover:text-blue-700" %>

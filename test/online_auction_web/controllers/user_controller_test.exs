@@ -18,7 +18,7 @@ defmodule OnlineAuctionWeb.UserControllerTest do
     test "redirects to show when data is valid", %{conn: conn} do
       conn = post(conn, Routes.user_path(conn, :create), user: @create_attrs)
 
-      assert redirected_to(conn) == Routes.page_path(conn, :index)
+      assert redirected_to(conn) == Routes.item_index_path(conn, :index)
     end
 
     test "renders errors when data is invalid", %{conn: conn} do

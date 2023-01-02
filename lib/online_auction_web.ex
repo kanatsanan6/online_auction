@@ -60,7 +60,12 @@ defmodule OnlineAuctionWeb do
       use Phoenix.LiveView,
         layout: {OnlineAuctionWeb.LayoutView, "live.html"}
 
+      on_mount OnlineAuctionWeb.Helpers.LiveAuth
       unquote(view_helpers())
+
+      alias OnlineAuctionWeb.Router.Helpers, as: Routes
+      alias OnlineAuctionWeb.Helpers.Auth, as: Auth
+      import OnlineAuctionWeb.Helpers.LiveAuth
     end
   end
 
@@ -104,6 +109,7 @@ defmodule OnlineAuctionWeb do
 
       # Import LiveView and .heex helpers (live_render, live_patch, <.form>, etc)
       import Phoenix.LiveView.Helpers
+      import OnlineAuctionWeb.LiveHelpers
 
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View

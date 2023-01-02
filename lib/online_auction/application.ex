@@ -13,7 +13,7 @@ defmodule OnlineAuction.Application do
       # Start the Telemetry supervisor
       OnlineAuctionWeb.Telemetry,
       # Start the PubSub system
-      {Phoenix.PubSub, name: OnlineAuction.PubSub},
+      {Phoenix.PubSub, [name: OnlineAuction.PubSub, adapter: Phoenix.PubSub.PG2]},
       # Start the Endpoint (http/https)
       OnlineAuctionWeb.Endpoint
       # Start a worker by calling: OnlineAuction.Worker.start_link(arg)

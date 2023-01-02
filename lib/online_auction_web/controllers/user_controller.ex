@@ -17,7 +17,7 @@ defmodule OnlineAuctionWeb.UserController do
         conn
         |> put_session(:current_user_id, user.id)
         |> put_flash(:info, "Signed up successfully.")
-        |> redirect(to: Routes.page_path(conn, :index))
+        |> redirect(to: Routes.item_index_path(conn, :index))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)

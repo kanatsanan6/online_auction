@@ -24,6 +24,13 @@ defmodule OnlineAuctionWeb.Router do
     get "/sign-in", SessionController, :new
     post "/sign-in", SessionController, :create
     delete "/sign-out", SessionController, :delete
+
+    live "/items", ItemLive.Index, :index
+    live "/items/new", ItemLive.Index, :new
+    live "/items/:id/edit", ItemLive.Index, :edit
+
+    live "/items/:id", ItemLive.Show, :show
+    live "/items/:id/show/edit", ItemLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.
