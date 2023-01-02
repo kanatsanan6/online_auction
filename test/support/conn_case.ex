@@ -1,4 +1,4 @@
-defmodule OnlineAuctionWeb.ConnCase do
+defmodule OnlineVotingWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -11,7 +11,7 @@ defmodule OnlineAuctionWeb.ConnCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use OnlineAuctionWeb.ConnCase, async: true`, although
+  by setting `use OnlineVotingWeb.ConnCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -22,17 +22,17 @@ defmodule OnlineAuctionWeb.ConnCase do
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
-      import OnlineAuctionWeb.ConnCase
+      import OnlineVotingWeb.ConnCase
 
-      alias OnlineAuctionWeb.Router.Helpers, as: Routes
+      alias OnlineVotingWeb.Router.Helpers, as: Routes
 
       # The default endpoint for testing
-      @endpoint OnlineAuctionWeb.Endpoint
+      @endpoint OnlineVotingWeb.Endpoint
     end
   end
 
   setup tags do
-    OnlineAuction.DataCase.setup_sandbox(tags)
+    OnlineVoting.DataCase.setup_sandbox(tags)
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 end

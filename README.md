@@ -1,4 +1,4 @@
-# OnlineAuction
+# OnlineVoting
 
 To start your Phoenix server:
 

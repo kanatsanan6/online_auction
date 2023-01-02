@@ -1,7 +1,7 @@
-defmodule OnlineAuction.AccountsFixtures do
+defmodule OnlineVoting.AccountsFixtures do
   @moduledoc """
   This module defines test helpers for creating
-  entities via the `OnlineAuction.Accounts` context.
+  entities via the `OnlineVoting.Accounts` context.
   """
 
   @doc """
@@ -19,7 +19,7 @@ defmodule OnlineAuction.AccountsFixtures do
         encrypted_password: "some encrypted_password",
         username: unique_user_username()
       })
-      |> OnlineAuction.Accounts.create_user()
+      |> OnlineVoting.Accounts.create_user()
 
     user
   end
