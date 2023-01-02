@@ -1,0 +1,36 @@
+<h1>Show Topic</h1>
+
+<%= if @live_action in [:edit] do %>
+  <.modal return_to={Routes.topic_index_path(@socket, :index)}>
+    <.live_component
+      module={OnlineVotingWeb.TopicLive.FormComponent}
+      id={@topic.id}
+      title={@page_title}
+      action={@live_action}
+      topic={@topic}
+      return_to={Routes.topic_index_path(@socket, :index)}
+    />
+  </.modal>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @topic.name %>
+  </li>
+
+  <li>
+    <strong>Agree:</strong>
+    <%= @topic.agreed %>
+  </li>
+
+  <li>
+    <strong>Disagreed:</strong>
+    <%= @topic.disagreed %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.topic_show_path(@socket, :edit, @topic), class: "button" %></span> |
+<span><%= live_redirect "Back", to: Routes.topic_index_path(@socket, :index) %></span>

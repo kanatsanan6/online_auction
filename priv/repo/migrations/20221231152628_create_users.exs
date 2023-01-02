@@ -1,4 +1,4 @@
-defmodule OnlineAuction.Repo.Migrations.CreateUsers do
+defmodule OnlineVoting.Repo.Migrations.CreateUsers do
   use Ecto.Migration
 
   def change do

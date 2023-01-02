@@ -1,7 +1,7 @@
-defmodule OnlineAuction.AuctionsFixtures do
+defmodule OnlineVoting.AuctionsFixtures do
   @moduledoc """
   This module defines test helpers for creating
-  entities via the `OnlineAuction.Auctions` context.
+  entities via the `OnlineVoting.Auctions` context.
   """
 
   @doc """
@@ -14,7 +14,7 @@ defmodule OnlineAuction.AuctionsFixtures do
         name: "some name",
         price: 42
       })
-      |> OnlineAuction.Auctions.create_item()
+      |> OnlineVoting.Auctions.create_item()
 
     item
   end

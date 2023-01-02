@@ -1,0 +1,56 @@
+<%= if @live_action in [:new, :edit] do %>
+  <.modal return_to={Routes.topic_index_path(@socket, :index)}>
+    <.live_component
+      module={OnlineVotingWeb.TopicLive.FormComponent}
+      id={@topic.id || :new}
+      title={@page_title}
+      action={@live_action}
+      topic={@topic}
+      return_to={Routes.topic_index_path(@socket, :index)}
+    />
+  </.modal>
+<% end %>
+
+<div class="flex items-center justify-between">
+  <h1 class="my-8 text-2xl">Topic list</h1>
+  <span><%= live_patch "New Topic", to: Routes.topic_index_path(@socket, :new), class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center" %></span>
+</div>
+
+<div class="overflow-x-auto relative">
+  <table class="w-full text-sm text-left text-gray-500">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+      <tr>
+        <th scope="col" class="py-3 px-6">
+          Topic
+        </th>
+        <th scope="col" class="py-3 px-6">
+          Agreed
+        </th>
+        <th scope="col" class="py-3 px-6">
+          Disagreed
+        </th>
+        <th scope="col" class="py-3 px-6">
+          Link
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for topic <- @topics do %>
+        <tr class="bg-white border-b">
+          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrape">
+            <%= topic.name %>
+          </th>
+          <td class="py-4 px-6">
+            <%= topic.agreed %>
+          </td>
+          <td class="py-4 px-6">
+            <%= topic.disagreed %>
+          </td>
+          <td class="py-4 px-6">
+            TBD
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

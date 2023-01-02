@@ -7,14 +7,14 @@
 # General application configuration
 import Config
 
-config :online_auction,
-  ecto_repos: [OnlineAuction.Repo]
+config :online_voting,
+  ecto_repos: [OnlineVoting.Repo]
 
 # Configures the endpoint
-config :online_auction, OnlineAuctionWeb.Endpoint,
+config :online_voting, OnlineVotingWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: OnlineAuctionWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: OnlineAuction.PubSub,
+  render_errors: [view: OnlineVotingWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: OnlineVoting.PubSub,
   live_view: [signing_salt: "n2ojbuOZ"]
 
 # Configures the mailer
@@ -24,7 +24,7 @@ config :online_auction, OnlineAuctionWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :online_auction, OnlineAuction.Mailer, adapter: Swoosh.Adapters.Local
+config :online_voting, OnlineVoting.Mailer, adapter: Swoosh.Adapters.Local
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false
