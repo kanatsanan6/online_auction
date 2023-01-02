@@ -24,6 +24,17 @@ defmodule OnlineAuctionWeb do
       import Plug.Conn
       import OnlineAuctionWeb.Gettext
       alias OnlineAuctionWeb.Router.Helpers, as: Routes
+      alias OnlineAuctionWeb.Helpers.Auth, as: Auth
+    end
+  end
+
+  def helper do
+    quote do
+      use Phoenix.Controller, namespace: OnlineAuctionWeb
+
+      import Plug.Conn
+      import OnlineAuctionWeb.Gettext
+      alias OnlineAuctionWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -39,6 +50,8 @@ defmodule OnlineAuctionWeb do
 
       # Include shared imports and aliases for views
       unquote(view_helpers())
+
+      import OnlineAuctionWeb.Helpers.Auth
     end
   end
 
