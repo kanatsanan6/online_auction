@@ -30,7 +30,6 @@
           Disagreed
         </th>
         <th scope="col" class="py-3 px-6">
-          Link
         </th>
       </tr>
     </thead>
@@ -46,8 +45,8 @@
           <td class="py-4 px-6">
             <%= topic.disagreed %>
           </td>
-          <td class="py-4 px-6">
-            TBD
+          <td class="py-4 px-6 text-blue-500 hover:text-blue-700">
+            <%= link "Vote", to: Routes.topic_show_path(@socket, :show, topic.id) %>
           </td>
         </tr>
       <% end %>

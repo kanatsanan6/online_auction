@@ -4,8 +4,6 @@ defmodule OnlineVotingWeb.TopicLive.Index do
   alias OnlineVoting.Votings
   alias OnlineVoting.Votings.Topic
 
-  require Logger
-
   @topic "voting"
 
   @impl true

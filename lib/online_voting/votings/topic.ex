@@ -6,6 +6,7 @@ defmodule OnlineVoting.Votings.Topic do
     field :name, :string
     field :agreed, :integer
     field :disagreed, :integer
+    many_to_many :users, OnlineVoting.Accounts.User, join_through: "topics_users"
 
     timestamps()
   end
@@ -13,7 +14,7 @@ defmodule OnlineVoting.Votings.Topic do
   @doc false
   def changeset(topic, attrs) do
     topic
-    |> cast(attrs, [:name])
+    |> cast(attrs, [:name, :agreed, :disagreed])
     |> validate_required([:name])
   end
 end

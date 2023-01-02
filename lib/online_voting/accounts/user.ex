@@ -7,6 +7,7 @@ defmodule OnlineVoting.Accounts.User do
   schema "users" do
     field :encrypted_password, :string
     field :username, :string
+    many_to_many :topics, OnlineVoting.Votings.Topic, join_through: "topics_users"
 
     timestamps()
   end
