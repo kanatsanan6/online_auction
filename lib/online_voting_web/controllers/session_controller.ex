@@ -20,6 +20,7 @@ defmodule OnlineVotingWeb.SessionController do
         |> put_session(:current_user_id, user.id)
         |> put_flash(:info, "Log in successfully.")
         |> redirect(to: Routes.topic_index_path(conn, :index))
+
       {:error, _} ->
         conn
         |> put_flash(:error, "Username or Password is incorrect.")

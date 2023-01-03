@@ -47,6 +47,7 @@ defmodule OnlineVotingWeb.TopicLive.FormComponent do
       {:ok, _topic} ->
         topics = list_topics()
         OnlineVotingWeb.Endpoint.broadcast_from(self(), @topic, "topic_event", topics)
+
         {:noreply,
          socket
          |> assign(:topics, list_topics())

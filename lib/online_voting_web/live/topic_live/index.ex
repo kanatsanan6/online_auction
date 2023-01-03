@@ -56,9 +56,12 @@ defmodule OnlineVotingWeb.TopicLive.Index do
       {:ok, _topic} ->
         topics = list_topics()
         OnlineVotingWeb.Endpoint.broadcast_from(self(), @topic, "topic_event", topics)
+
         socket
         |> redirect(to: Routes.topic_index_path(socket, :index))
+
         {:noreply, assign(socket, :topics, topics)}
+
       {:error, %Ecto.Changeset{} = changeset} ->
         {:noreply, assign(socket, changeset: changeset)}
     end

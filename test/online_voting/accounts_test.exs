@@ -45,7 +45,11 @@ defmodule OnlineVoting.AccountsTest do
 
     test "update_user/2 with valid data updates the user" do
       user = user_fixture()
-      update_attrs = %{encrypted_password: "some updated encrypted_password", username: "some updated username"}
+
+      update_attrs = %{
+        encrypted_password: "some updated encrypted_password",
+        username: "some updated username"
+      }
 
       assert {:ok, %User{} = user} = Accounts.update_user(user, update_attrs)
       assert user.encrypted_password =~ "argon"
